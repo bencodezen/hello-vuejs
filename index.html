@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Hello Vue.js!</title>
+    <link rel="shortcut icon" type="image/ico" href="./favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,800|Molle:400i|Coda:800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="app">
+      <main class="content">
+        <h1>
+          Hello <br />
+          <span class="fancy-font">{{ conference }}</span>
+        </h1>
+        <button id="easy-button" class="easy-button" @click="fireConfetti">
+          {{ buttonText }}
+        </button>
+        <form class="form">
+          <label for="message" class="label">Button Text</label>
+          <input v-model="buttonText" id="message" type="text" class="input" />
+        </form>
+      </main>
+      <canvas id="canvas" class="confetti-canvas"></canvas>
+    </div>
+    <script src="./js/animateConfetti.js"></script>
+    <!-- <script src="./js/vue-2.6.10.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: function() {
+          return {
+            buttonText: '',
+            conference: 'Cream City Code'
+          }
+        },
+        computed: {
+          currentConference: function() {
+            return this.conference + new Date().getFullYear()
+          }
+        },
+        methods: {
+          fireConfetti: function() {
+            const currentText = this.conference
+
+            this.conference = `🎉 ${currentText} 🎉`
+            animateConfetti()
+          }
+        }
+      })
+    </script>
+  </body>
 </html>

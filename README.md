@@ -2,6 +2,8 @@
 
 This repo is my Hello World version of Vue.js! It is meant to be used for demo purposes and a quick overview of just how awesome it is. 😎
 
+![Recording of Hello Vue.js app where user can type in the input to update the button text, and click on a button to fire confetti, updated text and show a ghost](/preview.gif)
+
 ## Content
 
 This repo contains two versions of the same app:
